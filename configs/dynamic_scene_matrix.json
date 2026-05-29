@@ -1,0 +1,15 @@
+{
+  "description": "Initial dynamic Gaussian splatting experiment matrix.",
+  "windowing": [
+    {"name": "full_static", "window_seconds": null, "stride_seconds": null},
+    {"name": "window_2s_stride_1s", "window_seconds": 2.0, "stride_seconds": 1.0},
+    {"name": "window_4s_stride_2s", "window_seconds": 4.0, "stride_seconds": 2.0},
+    {"name": "window_8s_stride_4s", "window_seconds": 8.0, "stride_seconds": 4.0}
+  ],
+  "methods": [
+    {"name": "splatfacto_static", "type": "static_3dgs"},
+    {"name": "segmented_splatfacto", "type": "static_3dgs_windows"},
+    {"name": "dynamic_gaussians", "type": "4d_gaussian_splatting"}
+  ],
+  "metrics": ["psnr", "ssim", "lpips", "temporal_lpips", "window_boundary_error", "train_seconds", "render_fps"]
+}
