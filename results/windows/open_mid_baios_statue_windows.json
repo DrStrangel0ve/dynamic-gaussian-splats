@@ -1,0 +1,61 @@
+{
+  "scene_id": "open_mid_baios_statue",
+  "label": "Baios statue",
+  "role": "Open-license mid-scale statue source video",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Baios_statue_-_Ninfeo_punta_Epitaffio.webm",
+  "license": "CC0 1.0 Universal Public Domain Dedication",
+  "video_file": "..\\open-video-3dgs-zoo\\videos\\open_mid_baios_statue.webm",
+  "duration_seconds": 8.066,
+  "window_seconds": 2.0,
+  "stride_seconds": 1.0,
+  "windows": [
+    {
+      "window_id": "window_0000",
+      "start_seconds": 0.0,
+      "end_seconds": 2.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0001",
+      "start_seconds": 1.0,
+      "end_seconds": 3.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0002",
+      "start_seconds": 2.0,
+      "end_seconds": 4.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0003",
+      "start_seconds": 3.0,
+      "end_seconds": 5.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0004",
+      "start_seconds": 4.0,
+      "end_seconds": 6.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0005",
+      "start_seconds": 5.0,
+      "end_seconds": 7.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0006",
+      "start_seconds": 6.0,
+      "end_seconds": 8.0,
+      "duration_seconds": 2.0
+    },
+    {
+      "window_id": "window_0007",
+      "start_seconds": 7.0,
+      "end_seconds": 8.066,
+      "duration_seconds": 1.066
+    }
+  ]
+}

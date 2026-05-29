@@ -1,0 +1,4 @@
+scene_id,label,duration_seconds,window_seconds,stride_seconds,windows,manifest
+open_close_scanparayzo,Scanparayzo,32.54,2.0,1.0,32,results\windows\open_close_scanparayzo_windows.json
+open_mid_baios_statue,Baios statue,8.066,2.0,1.0,8,results\windows\open_mid_baios_statue_windows.json
+open_wide_gimbal_fence,Gimbal shot walking along fence line,27.761,2.0,1.0,27,results\windows\open_wide_gimbal_fence_windows.json
