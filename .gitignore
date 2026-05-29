@@ -6,3 +6,8 @@ frames/
 processed/
 outputs/
 tmp/
+external/
+jobs/*.local.sh
+data/dnerf/
+data/hypernerf/
+data/dynerf/

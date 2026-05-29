@@ -1,0 +1,25 @@
+{
+  "profile": {
+    "profile_id": "smoke",
+    "description": "Small first pass to validate environment and dataset paths.",
+    "iterations": 1000,
+    "render_iteration": 1000,
+    "datasets": [
+      "dnerf_bouncingballs"
+    ]
+  },
+  "jobs": [
+    {
+      "dataset_id": "dnerf_bouncingballs",
+      "profile_id": "smoke",
+      "source": "data/dnerf/bouncingballs",
+      "config": "arguments/dnerf/bouncingballs.py",
+      "expname": "dnerf/bouncingballs_smoke",
+      "model_path": "output/dnerf/bouncingballs_smoke",
+      "train": "python train.py -s 'data/dnerf/bouncingballs' --port 6017 --expname 'dnerf/bouncingballs_smoke' --configs 'arguments/dnerf/bouncingballs.py' --iterations 1000",
+      "render": "python render.py --model_path 'output/dnerf/bouncingballs_smoke' --skip_train --configs 'arguments/dnerf/bouncingballs.py' --iteration 1000",
+      "metrics": "python metrics.py --model_paths 'output/dnerf/bouncingballs_smoke'",
+      "upstream_dir": "external/4DGaussians"
+    }
+  ]
+}

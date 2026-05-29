@@ -1,0 +1,91 @@
+{
+  "description": "Long-running benchmark matrix for static Splatfacto, windowed static splats, and 4D Gaussian Splatting.",
+  "upstream": {
+    "name": "hustvl/4DGaussians",
+    "repository": "https://github.com/hustvl/4DGaussians.git",
+    "branch": "master",
+    "paper": "https://arxiv.org/abs/2310.08528",
+    "notes": "The upstream project expects its own Python/CUDA environment and D-NeRF, HyperNeRF, DyNeRF, or multiple-view dataset layouts."
+  },
+  "datasets": [
+    {
+      "dataset_id": "dnerf_bouncingballs",
+      "family": "dnerf",
+      "scene": "bouncingballs",
+      "relative_source": "data/dnerf/bouncingballs",
+      "config": "arguments/dnerf/bouncingballs.py",
+      "expected_motion": "synthetic dynamic scene",
+      "priority": 1
+    },
+    {
+      "dataset_id": "dnerf_hellwarrior",
+      "family": "dnerf",
+      "scene": "hellwarrior",
+      "relative_source": "data/dnerf/hellwarrior",
+      "config": "arguments/dnerf/hellwarrior.py",
+      "expected_motion": "synthetic articulated motion",
+      "priority": 2
+    },
+    {
+      "dataset_id": "hypernerf_broom",
+      "family": "hypernerf",
+      "scene": "broom",
+      "relative_source": "data/hypernerf/virg/broom2",
+      "config": "arguments/hypernerf/broom.py",
+      "expected_motion": "real deformable capture",
+      "priority": 3
+    }
+  ],
+  "methods": [
+    {
+      "method_id": "static_full_clip",
+      "type": "nerfstudio_splatfacto",
+      "status": "baseline_from_existing_open_video_results",
+      "output_pattern": "results/open_video_full_frame_summary.csv"
+    },
+    {
+      "method_id": "windowed_static_2s",
+      "type": "nerfstudio_splatfacto_windows",
+      "status": "planned",
+      "window_seconds": 2.0,
+      "stride_seconds": 1.0
+    },
+    {
+      "method_id": "4dgs_upstream",
+      "type": "hustvl_4dgaussians",
+      "status": "job_harness_ready",
+      "train_script": "train.py",
+      "render_script": "render.py",
+      "metrics_script": "metrics.py",
+      "default_port": 6017
+    }
+  ],
+  "run_profiles": [
+    {
+      "profile_id": "smoke",
+      "description": "Small first pass to validate environment and dataset paths.",
+      "iterations": 1000,
+      "render_iteration": 1000,
+      "datasets": ["dnerf_bouncingballs"]
+    },
+    {
+      "profile_id": "paperish_dnerf",
+      "description": "Longer D-NeRF sweep once setup is stable.",
+      "iterations": 14000,
+      "render_iteration": 14000,
+      "datasets": ["dnerf_bouncingballs", "dnerf_hellwarrior"]
+    }
+  ],
+  "metrics": [
+    "PSNR",
+    "SSIM",
+    "LPIPS-vgg",
+    "LPIPS-alex",
+    "MS-SSIM",
+    "D-SSIM",
+    "train_seconds",
+    "render_fps",
+    "gpu_name",
+    "peak_vram_mb"
+  ]
+}
